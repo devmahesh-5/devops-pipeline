@@ -15,6 +15,11 @@ jobs:
   test:
     name: Run Tests
     runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://test:test@localhost:5432/test_acquisitions'}}
+      JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+      ARCJET_KEY: ${{ secrets.ARCJET_KEY }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
