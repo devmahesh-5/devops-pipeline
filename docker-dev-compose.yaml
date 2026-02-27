@@ -28,7 +28,7 @@ services:
       - .env
     environment:
       # This tells the app to talk to the 'db' service inside Docker
-      - DB_URL=postgresql://postgres:postgres@db:5432/acquisitions
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/acquisitions
     volumes:
       - .:/app
       - /app/node_modules
