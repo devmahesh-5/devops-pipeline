@@ -1,0 +1,34 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: set up node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: npm install
+
+      - name: run testing
+        run: npm test
+
+        env:
+          NODE_ENV: production
+          NODE_OPTIONS: --experimental-vm-modules
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://test:test@localhost:5432/test_acquisitions'}}
