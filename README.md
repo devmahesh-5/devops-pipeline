@@ -100,11 +100,11 @@ Docker is a platform that packages an application and all its dependencies (libr
 
 for example: this container solves the problem of working on a windows laptop's owner and mac user by wrapping containeer with own os(though uses host resources),dependencies,runtimes
 
--> Docker maintains isolation: 
--> protability: containeers are lightweight,lets easy move appn to test,dev,deployment
--> verson control: we can return to previous version if something goes wrong
--> scalability : allows to have multiple copies to handle traffic
--> deployment integration: develop,tested and deployed efficiently 
+- Docker maintains isolation: 
+- protability: containeers are lightweight,lets easy move appn to test,dev,deployment
+- verson control: we can return to previous version if something goes wrong
+- scalability : allows to have multiple copies to handle traffic
+- deployment integration: develop,tested and deployed efficiently 
 
 
 1. Images:
@@ -161,7 +161,7 @@ for example: this container solves the problem of working on a windows laptop's 
 - docker file with different keyboard makes an image 
 
   ##  Essential Keywords & Commands
-
+```
   | Command | Action | Instructions
   | :--- | :--- |
   | **`FROM`** | Sets the Base Image (e.g., `FROM node:20`). |
@@ -174,6 +174,7 @@ for example: this container solves the problem of working on a windows laptop's 
   | **`ARGS`** | Defines build time variables. |
   | **`VOLUME`** | creates mount point for externally mounted volumes.(e.g, VOLUME /myvol) |
   | **`ENTRYPOINT`** | for default fixed executable command or starting point for contaainer.|
+  ```
 ---
 after creating an image we can just 
 `docker build -t docker_image_name .` to make container of the image in dockerfile which has base runtime or image + configuration like where to copy what in container, run what command in project etc 
